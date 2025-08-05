@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -49,21 +50,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAXG-PHAoZ5AgolVyFBUQ5gonCMfnvaP8Y',
-    appId: '1:423944918957:web:b4057d706245aaf395b324',
-    messagingSenderId: '423944918957',
-    projectId: 'project-4f938',
-    authDomain: 'project-4f938.firebaseapp.com',
-    storageBucket: 'project-4f938.firebasestorage.app',
-    measurementId: 'G-W48NQYQP17',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_WEB_API_KEY']!,
+    appId: dotenv.env['FIREBASE_WEB_APP_ID']!,
+    messagingSenderId: dotenv.env['FIREBASE_WEB_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['FIREBASE_WEB_PROJECT_ID']!,
+    authDomain: dotenv.env['FIREBASE_WEB_AUTH_DOMAIN'],
+    storageBucket: dotenv.env['FIREBASE_WEB_STORAGE_BUCKET'],
+    measurementId: dotenv.env['FIREBASE_WEB_MEASUREMENT_ID'],
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDlqZ6ZVPAJYUfEdy3x_uZVjzUnErmZ464',
-    appId: '1:423944918957:android:d0612c7e746fa10c95b324',
-    messagingSenderId: '423944918957',
-    projectId: 'project-4f938',
-    storageBucket: 'project-4f938.firebasestorage.app',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_ANDROID_API_KEY']!,
+    appId: dotenv.env['FIREBASE_ANDROID_APP_ID']!,
+    messagingSenderId: dotenv.env['FIREBASE_ANDROID_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['FIREBASE_ANDROID_PROJECT_ID']!,
+    storageBucket: dotenv.env['FIREBASE_ANDROID_STORAGE_BUCKET'],
   );
 }
