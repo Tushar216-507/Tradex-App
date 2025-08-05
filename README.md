@@ -76,14 +76,6 @@ Key packages used in this project:
 
 See `pubspec.yaml` for the full list and versions.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please open issues and submit pull requests for new features, bug fixes, or improvements.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## 🔗 Resources
 
 - [Flutter Documentation](https://docs.flutter.dev/)
