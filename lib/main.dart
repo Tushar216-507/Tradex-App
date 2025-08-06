@@ -13,7 +13,10 @@ import 'user_details_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
+  await dotenv.load(fileName: 'secrets.env'); // Explicitly load secrets.env
+  print(
+    'API KEY:  [32m [1m${dotenv.env['FIREBASE_WEB_API_KEY']} [0m',
+  ); // Debug print
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const TradingApp());
 }
