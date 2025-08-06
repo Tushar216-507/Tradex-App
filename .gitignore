@@ -47,3 +47,4 @@ app.*.map.json
 # Environment variable files
 .env
 secrets.env
+assets/secrets.env
