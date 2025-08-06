@@ -13,10 +13,9 @@ import 'user_details_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: 'secrets.env'); // Explicitly load secrets.env
-  print(
-    'API KEY:  [32m [1m${dotenv.env['FIREBASE_WEB_API_KEY']} [0m',
-  ); // Debug print
+  await dotenv.load(
+    fileName: 'assets/secrets.env',
+  ); // Explicitly load secrets.env
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const TradingApp());
 }
@@ -30,10 +29,8 @@ class TradingApp extends StatelessWidget {
           .collection('users')
           .doc(user.uid);
       final doc = await docRef.get();
-
       final data = doc.data();
       if (data == null) return false;
-
       return (data['name'] ?? '').toString().isNotEmpty &&
           (data['dob'] ?? '').toString().isNotEmpty;
     } catch (e) {
